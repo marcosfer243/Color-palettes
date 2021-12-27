@@ -1,0 +1,275 @@
+@use "base";
+
+%flexer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+%flexer2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  @extend %flexer;
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: aliceblue;
+  margin: 0;
+
+  .main-container {
+    @extend %flexer2;
+
+    width: 100%;
+    margin-bottom: 50px;
+
+    header {
+      font-family: "Pushster", cursive;
+      margin-top: 300px;
+      @extend %flexer2;
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .container {
+      @extend %flexer;
+      .letters {
+        @extend %flexer2;
+
+        text-align: center;
+        font-family: "Lato", sans-serif;
+
+        .space-bar {
+          margin: 10px;
+          @extend %flexer2;
+          font-size: 25px;
+          div {
+            font-size: 30px;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 30%;
+          }
+          span {
+            display: block;
+            font-size: 16px;
+          }
+        }
+      }
+      .color-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        margin: 20px;
+        @extend %flexer;
+
+        .color {
+          height: 250px;
+          width: 300px;
+          border: 5px solid base.$border;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .icon-container {
+            @extend %flexer2;
+            text-align: center;
+
+            i {
+              font-size: 25px;
+              color: rgb(0, 0, 0);
+              font-weight: bold;
+              opacity: 0.2;
+              transition: all 0.2s ease;
+              cursor: pointer;
+              margin: 4px;
+
+              span {
+                font-size: 16px;
+                font-family: "Lato", sans-serif;
+                display: block;
+                visibility: hidden;
+              }
+            }
+
+            input {
+              visibility: hidden;
+              width: 50%;
+            }
+
+            i:hover {
+              color: rgb(226, 226, 226);
+              opacity: 1;
+            }
+
+            i:active {
+              transform: scale(0.97);
+            }
+
+            i:hover span {
+              visibility: visible;
+            }
+          }
+        }
+      }
+
+      .palette {
+        @extend %flexer2;
+        font-family: "Pushster", cursive;
+        margin: 50px;
+        .selected {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          border: 4px solid base.$border;
+          margin: 5px;
+          text-align: center;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          box-shadow: 3px 4px 10px 2px rgba(82, 82, 82, 0.2);
+          position: relative;
+
+          .far.fa-copy {
+            font-size: 16px;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            opacity: 0.2;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            margin-top: 10px;
+            span {
+              font-size: 16px;
+              font-family: "Lato", sans-serif;
+              display: block;
+              visibility: hidden;
+              width: 100%;
+            }
+          }
+
+          input {
+            visibility: hidden;
+            width: 100%;
+          }
+
+          .far.fa-copy:hover {
+            color: rgb(226, 226, 226);
+            opacity: 1;
+          }
+
+          .far.fa-copy:active {
+            transform: scale(0.97);
+          }
+
+          .fas.fa-backspace {
+            color: rgba(82, 82, 82, 0.2);
+            font-size: 10px;
+            position: absolute;
+            top: 0;
+            right: -15px;
+            visibility: visible;
+            cursor: pointer;
+          }
+
+          .fas.fa-backspace:hover {
+            color: rgb(185, 11, 11);
+          }
+
+          .fas.fa-backspace:active {
+            transform: scale(0.98);
+          }
+        }
+      }
+    }
+
+    button {
+      position: relative;
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      outline-offset: 4px;
+      transition: filter 250ms;
+      user-select: none;
+      touch-action: manipulation;
+    }
+
+    .shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: hsl(0deg 0% 0% / 0.25);
+      will-change: transform;
+      transform: translateY(2px);
+      transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+    }
+
+    .edge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      background: linear-gradient(
+        to left,
+        hsl(340deg 100% 16%) 0%,
+        hsl(340deg 100% 32%) 8%,
+        hsl(340deg 100% 32%) 92%,
+        hsl(340deg 100% 16%) 100%
+      );
+    }
+
+    .front {
+      display: block;
+      position: relative;
+      padding: 12px 27px;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      color: white;
+      background: hsl(345deg 100% 47%);
+      will-change: transform;
+      transform: translateY(-4px);
+      transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+      font-weight: bold;
+    }
+
+    button:hover {
+      filter: brightness(110%);
+    }
+
+    button:hover .front {
+      transform: translateY(-6px);
+      transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+    }
+
+    button:active .front {
+      transform: translateY(-2px);
+      transition: transform 34ms;
+    }
+
+    button:hover .shadow {
+      transform: translateY(4px);
+      transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+    }
+
+    button:active .shadow {
+      transform: translateY(1px);
+      transition: transform 34ms;
+    }
+
+    button:focus:not(:focus-visible) {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+      integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./css/output.css" />
+    <title>Color Palette</title>
+  </head>
+  <body onload="aleatorio(0,255)">
+    <div class="main-container">
+      <header>
+        <img src="./images/palette.png" alt="Palette" />
+        <h1>Color palette generator</h1>
+      </header>
+      <div class="container">
+        <div class="letters">
+          <div class="space-bar">
+            <div>G</div>
+            <span>Use "G" to generate new colors</span>
+          </div>
+        </div>
+        <div class="color-container">
+          <div id="one" class="color">
+            <div class="icon-container">
+              <i id="select-one" class="far fa-check-square"
+                ><span>Select Color</span></i
+              >
+              <i id="copy-one" class="far fa-copy"><span>Copy Hex</span></i>
+              <input type="text" id="input-one" readonly />
+            </div>
+          </div>
+          <div id="two" class="color">
+            <div class="icon-container">
+              <i id="select-two" class="far fa-check-square"
+                ><span>Select Color</span></i
+              >
+              <i id="copy-two" class="far fa-copy"><span>Copy Hex</span></i>
+              <input type="text" id="input-two" readonly />
+            </div>
+          </div>
+          <div id="three" class="color">
+            <div class="icon-container">
+              <i id="select-three" class="far fa-check-square"
+                ><span>Select Color</span></i
+              >
+              <i id="copy-three" class="far fa-copy"><span>Copy Hex</span></i>
+              <input type="text" id="input-three" readonly />
+            </div>
+          </div>
+          <div id="four" class="color">
+            <div class="icon-container">
+              <i id="select-four" class="far fa-check-square"
+                ><span>Select Color</span></i
+              >
+              <i id="copy-four" class="far fa-copy"><span>Copy Hex</span></i>
+              <input type="text" id="input-four" readonly />
+            </div>
+          </div>
+          <div id="five" class="color">
+            <div class="icon-container">
+              <i id="select-five" class="far fa-check-square"
+                ><span>Select Color</span></i
+              >
+              <i id="copy-five" class="far fa-copy"><span>Copy Hex</span></i>
+              <input type="text" id="input-five" readonly />
+            </div>
+          </div>
+          <div id="six" class="color">
+            <div class="icon-container">
+              <i id="select-six" class="far fa-check-square"
+                ><span>Select Color</span></i
+              >
+              <i id="copy-six" class="far fa-copy"><span>Copy Hex</span></i>
+              <input type="text" id="input-six" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="palette">
+          <h2>Set your color palette</h2>
+          <div id="c-one" class="selected">
+            <i id="delete-one" class="fas fa-backspace"></i>
+            <i id="copy-selected-one" class="far fa-copy"></i>
+            <input type="text" id="input-selected-one" readonly />
+          </div>
+          <div id="c-two" class="selected">
+            <i id="delete-two" class="fas fa-backspace"></i>
+            <i id="copy-selected-two" class="far fa-copy"
+              ><span>Copy Hex</span>
+            </i>
+            <input type="text" id="input-selected-two" readonly />
+          </div>
+          <div id="c-three" class="selected">
+            <i id="delete-three" class="fas fa-backspace"></i>
+            <i id="copy-selected-three" class="far fa-copy"
+              ><span>Copy Hex</span>
+            </i>
+            <input type="text" id="input-selected-three" readonly />
+          </div>
+          <div id="c-four" class="selected">
+            <i id="delete-four" class="fas fa-backspace"></i>
+            <i id="copy-selected-four" class="far fa-copy"
+              ><span>Copy Hex</span>
+            </i>
+            <input type="text" id="input-selected-four" readonly />
+          </div>
+          <div id="c-five" class="selected">
+            <i id="delete-five" class="fas fa-backspace"></i>
+            <i id="copy-selected-five" class="far fa-copy"
+              ><span>Copy Hex</span>
+            </i>
+            <input type="text" id="input-selected-five" readonly />
+          </div>
+          <div id="c-six" class="selected">
+            <i id="delete-six" class="fas fa-backspace"></i>
+            <i id="copy-selected-six" class="far fa-copy"
+              ><span>Copy Hex</span>
+            </i>
+            <input type="text" id="input-selected-six" readonly />
+          </div>
+        </div>
+      </div>
+
+      <button id="btn">
+        <span class="shadow"></span>
+        <span class="edge"></span>
+        <span class="front text">Generate</span>
+      </button>
+    </div>
+
+    <script src="https://unpkg.com/clipboard@2/dist/clipboard.min.js"></script>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

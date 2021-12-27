@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Pushster&display=swap");
+* {
+  box-sizing: border-box;
+}
+
+body .main-container .container .color-container, body .main-container .container, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+body .main-container .container .palette, body .main-container .container .color-container .color .icon-container, body .main-container .container .letters .space-bar, body .main-container .container .letters, body .main-container header, body .main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+body {
+  height: 100vh;
+  overflow-y: scroll;
+  background-color: aliceblue;
+  margin: 0;
+}
+body .main-container {
+  width: 100%;
+  margin-bottom: 50px;
+}
+body .main-container header {
+  font-family: "Pushster", cursive;
+  margin-top: 300px;
+}
+body .main-container header img {
+  width: 100px;
+  height: 100px;
+}
+body .main-container .container .letters {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+}
+body .main-container .container .letters .space-bar {
+  margin: 10px;
+  font-size: 25px;
+}
+body .main-container .container .letters .space-bar div {
+  font-size: 30px;
+  border: 1px solid black;
+  border-radius: 4px;
+  width: 30%;
+}
+body .main-container .container .letters .space-bar span {
+  display: block;
+  font-size: 16px;
+}
+body .main-container .container .color-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 20px;
+}
+body .main-container .container .color-container .color {
+  height: 250px;
+  width: 300px;
+  border: 5px solid #2e2e2e;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body .main-container .container .color-container .color .icon-container {
+  text-align: center;
+}
+body .main-container .container .color-container .color .icon-container i {
+  font-size: 25px;
+  color: black;
+  font-weight: bold;
+  opacity: 0.2;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin: 4px;
+}
+body .main-container .container .color-container .color .icon-container i span {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  display: block;
+  visibility: hidden;
+}
+body .main-container .container .color-container .color .icon-container input {
+  visibility: hidden;
+  width: 50%;
+}
+body .main-container .container .color-container .color .icon-container i:hover {
+  color: #e2e2e2;
+  opacity: 1;
+}
+body .main-container .container .color-container .color .icon-container i:active {
+  transform: scale(0.97);
+}
+body .main-container .container .color-container .color .icon-container i:hover span {
+  visibility: visible;
+}
+body .main-container .container .palette {
+  font-family: "Pushster", cursive;
+  margin: 50px;
+}
+body .main-container .container .palette .selected {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 4px solid #2e2e2e;
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 3px 4px 10px 2px rgba(82, 82, 82, 0.2);
+  position: relative;
+}
+body .main-container .container .palette .selected .far.fa-copy {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  opacity: 0.2;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  margin-top: 10px;
+}
+body .main-container .container .palette .selected .far.fa-copy span {
+  font-size: 16px;
+  font-family: "Lato", sans-serif;
+  display: block;
+  visibility: hidden;
+  width: 100%;
+}
+body .main-container .container .palette .selected input {
+  visibility: hidden;
+  width: 100%;
+}
+body .main-container .container .palette .selected .far.fa-copy:hover {
+  color: #e2e2e2;
+  opacity: 1;
+}
+body .main-container .container .palette .selected .far.fa-copy:active {
+  transform: scale(0.97);
+}
+body .main-container .container .palette .selected .fas.fa-backspace {
+  color: rgba(82, 82, 82, 0.2);
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: -15px;
+  visibility: visible;
+  cursor: pointer;
+}
+body .main-container .container .palette .selected .fas.fa-backspace:hover {
+  color: #b90b0b;
+}
+body .main-container .container .palette .selected .fas.fa-backspace:active {
+  transform: scale(0.98);
+}
+body .main-container button {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+  user-select: none;
+  touch-action: manipulation;
+}
+body .main-container .shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+body .main-container .edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(to left, #52001b 0%, #a30036 8%, #a30036 92%, #52001b 100%);
+}
+body .main-container .front {
+  display: block;
+  position: relative;
+  padding: 12px 27px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: white;
+  background: #f0003c;
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: transform 600ms cubic-bezier(0.3, 0.7, 0.4, 1);
+  font-weight: bold;
+}
+body .main-container button:hover {
+  filter: brightness(110%);
+}
+body .main-container button:hover .front {
+  transform: translateY(-6px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+body .main-container button:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+body .main-container button:hover .shadow {
+  transform: translateY(4px);
+  transition: transform 250ms cubic-bezier(0.3, 0.7, 0.4, 1.5);
+}
+body .main-container button:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+body .main-container button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/*# sourceMappingURL=output.css.map */
